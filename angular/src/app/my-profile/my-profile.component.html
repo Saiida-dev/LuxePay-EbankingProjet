@@ -1,0 +1,101 @@
+<div class="my-profile-container">
+  <div class="profile-content">
+    <div class="personal-info-card card">
+      <h3>Personal Information</h3>
+      <form [formGroup]="personalInfoForm" (ngSubmit)="updateProfile()" class="profile-form">
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input type="text" id="firstName" formControlName="firstName" placeholder="Your First Name">
+          <div *ngIf="personalInfoForm.get('firstName')?.invalid && personalInfoForm.get('firstName')?.touched" class="error-message">
+            First Name is required.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input type="text" id="lastName" formControlName="lastName" placeholder="Your Last Name">
+          <div *ngIf="personalInfoForm.get('lastName')?.invalid && personalInfoForm.get('lastName')?.touched" class="error-message">
+            Last Name is required.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" formControlName="email" placeholder="Your Email">
+          <div *ngIf="personalInfoForm.get('email')?.invalid && personalInfoForm.get('email')?.touched" class="error-message">
+            Valid Email is required.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone</label>
+          <input type="text" id="phone" formControlName="phone" placeholder="Your Phone Number">
+          <div *ngIf="personalInfoForm.get('phone')?.invalid && personalInfoForm.get('phone')?.touched" class="error-message">
+            Phone Number is required.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="address">Address</label>
+          <input type="text" id="address" formControlName="address" placeholder="Your Address">
+          <div *ngIf="personalInfoForm.get('address')?.invalid && personalInfoForm.get('address')?.touched" class="error-message">
+            Address is required.
+          </div>
+        </div>
+        <button type="submit" [disabled]="!personalInfoForm.valid" class="update-button">Update</button>
+      </form>
+    </div>
+
+    <div class="security-card card">
+      <h3>Security</h3>
+      <form [formGroup]="passwordChangeForm" (ngSubmit)="changePassword()" class="profile-form">
+        <div class="form-group">
+          <label for="currentPassword">Current Password</label>
+          <input type="password" id="currentPassword" formControlName="currentPassword" placeholder="Current Password">
+          <div *ngIf="passwordChangeForm.get('currentPassword')?.invalid && passwordChangeForm.get('currentPassword')?.touched" class="error-message">
+            Current Password is required.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="newPassword">New Password</label>
+          <input type="password" id="newPassword" formControlName="newPassword" placeholder="New Password">
+          <div *ngIf="passwordChangeForm.get('newPassword')?.invalid && passwordChangeForm.get('newPassword')?.touched" class="error-message">
+            <span *ngIf="passwordChangeForm.get('newPassword')?.errors?.['required']">New Password is required.</span>
+            <span *ngIf="passwordChangeForm.get('newPassword')?.errors?.['minlength']">Password must be at least 6 characters.</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="confirmPassword">Confirm New Password</label>
+          <input type="password" id="confirmPassword" formControlName="confirmPassword" placeholder="Confirm New Password">
+          <div *ngIf="passwordChangeForm.get('confirmPassword')?.invalid && passwordChangeForm.get('confirmPassword')?.touched" class="error-message">
+            Confirm Password is required.
+          </div>
+          <div *ngIf="passwordChangeForm.errors?.['mismatch'] && passwordChangeForm.get('confirmPassword')?.touched" class="error-message">
+            Passwords do not match.
+          </div>
+        </div>
+        <button type="submit" [disabled]="!passwordChangeForm.valid" class="update-button">Change Password</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="profile-sidebar">
+    <div class="profile-card card">
+      <div class="profile-picture-container">
+        <img *ngIf="profilePictureUrl" [src]="profilePictureUrl" alt="Profile Picture" class="profile-picture-circle">
+        <div *ngIf="!profilePictureUrl" class="profile-initials-circle">{{ initials }}</div>
+        <input type="file" (change)="onFileSelected($event)" accept="image/*" style="display: none;" #fileInput>
+        <button type="button" (click)="fileInput.click()" class="change-photo-button">Change Photo</button>
+      </div>
+      <h3 class="profile-name">{{ user.firstName }} {{ user.lastName }}</h3>
+      <p class="profile-email">{{ user.email }}</p>
+    </div>
+
+    <div class="settings-card card">
+      <h3>Settings</h3>
+      <div class="settings-options">
+        <div *ngFor="let option of settingsOptions" class="setting-item" (click)="handleSettingAction(option.action)">
+          <img [src]="getIconPath(option.icon)" alt="{{ option.name }} icon" class="setting-icon">
+          <span>{{ option.name }}</span>
+          <button class="configure-button">{{ option.action === 'toggle2FA' ? 'Activate' : 'Configure' }}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

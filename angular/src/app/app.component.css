@@ -1,0 +1,96 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+.container{
+    width: 100%;
+    height: 400px;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif; /* Global font */
+}
+
+.layout { /* Renamed from .main-content-wrapper */
+  display: flex;
+  flex-grow: 1;
+  margin-top: 60px; /* Account for fixed header height */
+  width: 100%; /* Ensure it takes full width of its parent after margin-top */
+}
+
+.router-content {
+  /* Removed flex-grow and flex-shrink to allow margin: auto to work effectively as a block element */
+  transition: all 0.3s ease-in-out;
+  background-color: #f7f9fc;
+  width: 100%; /* Ensure it takes full width when sidebar is hidden */
+  
+  /* Default state: sidebar hidden, content centered and extensible */
+  margin: 0 auto;
+  max-width: 1200px; /* Comfortable max width */
+  padding: 0 24px;
+}
+
+.router-content.with-sidebar {
+  flex-grow: 1; /* Apply flex-grow here, when sidebar is active */
+  flex-shrink: 1; /* Allow to shrink when sidebar is active */
+  margin-left: 270px; /* Sidebar width (250px) + desired gap (20px) */
+  margin-right: 0; /* Ensure no auto margin on right */
+  width: auto; /* Let flexbox determine width when sidebar is open */
+  max-width: calc(1200px - 270px); /* Adjust max-width to maintain overall content width */
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 998;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .router-content {
+    margin: 0 auto; /* Always centered on mobile */
+    padding: 0 15px; /* Adjust padding for mobile */
+    max-width: none; /* Let it take full width on mobile */
+    width: 100%; /* Ensure full width on mobile */
+  }
+  
+  .router-content.with-sidebar {
+    margin-left: 0; /* Sidebar is collapsed on mobile, so no margin */
+    max-width: none; /* Take full width on mobile */
+    width: auto; /* Let flexbox determine width */
+  }
+  
+  .layout {
+    margin-top: 60px; /* Ensure margin-top remains for mobile header */
+  }
+}
+
+@media (min-width: 769px) {
+  .router-content {
+    /* Default styles already handle centering and max-width. */
+  }
+  .router-content.with-sidebar {
+    margin-left: 270px; /* Ensure correct margin for desktop when sidebar is open */
+    width: auto; /* Let flexbox determine width */
+    max-width: calc(1200px - 270px); /* Adjust max-width when sidebar is open */
+  }
+  
+  .backdrop {
+    display: none !important; /* Hide backdrop on large screens */
+  }
+
+  .layout {
+    width: 100%; /* Ensure full width */
+  }
+}

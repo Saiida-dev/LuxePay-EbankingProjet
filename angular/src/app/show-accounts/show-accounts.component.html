@@ -1,0 +1,11 @@
+<p>show-accounts works!</p>
+<div cdkDropList (cdkDropListDropped)="drop($event)" cdkDrag cdkDropList>
+    <div *ngFor="let account of accounts" class="example-box" cdkDragBoundary=".example-boundary">
+        <p>Account Number: {{ account.accountNumber }}</p>
+        <p>Type: {{ account.type }}</p>
+        <p>Solde: {{ account.solde }}</p>
+        <p>Date Creation: {{ account.date_creation }}</p>
+        <p>Status: {{ account.status }}</p>
+        <p>User ID: {{ account.id_user }}</p>
+      </div>
+  </div>

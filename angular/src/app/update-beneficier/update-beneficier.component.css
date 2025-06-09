@@ -1,0 +1,70 @@
+.form-container {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 500px;
+    margin: 20px auto;
+}
+.form-container h2 {
+    margin-top: 0;
+    font-size: 24px;
+    color: white;
+    text-align: center;
+}
+.form-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+.form-group label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: white;
+}
+.form-group input {
+    padding: 10px;
+    border: 1px solid #333;
+    border-radius: 4px;
+    background-color: #292929;
+    color: white;
+    width: 100%;
+    box-sizing: border-box;
+}
+.form-group input:focus {
+    border-color: #2563eb;
+    outline: none;
+}
+.form-group button {
+    background: linear-gradient(to right, #2563eb, #7c3aed);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+}
+.form-group button:hover {
+    background: linear-gradient(to right, #1a4ed8, #6428c9);
+}
+
+.close {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    border: none;
+    border-radius: 12px;
+    background: var(--color-light);
+    padding: 10px 14px;
+    color: black;
+    transition: .4s;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .close:hover {
+    background: black;
+    color: var(--color-light);
+  }
+  

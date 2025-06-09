@@ -1,0 +1,82 @@
+<div class="trading-dashboard-container">
+  <div class="top-summary-cards">
+    <div class="crypto-summary-card" *ngFor="let asset of cryptoData | keyvalue">
+      <div class="crypto-header">
+        <img [src]="rechargeService.getIconPath(asset.value.symbol.toLowerCase() + '.png')" alt="{{ asset.value.name }} Logo" class="crypto-logo-small">
+        <h3>{{ asset.value.name }} ({{ asset.value.symbol }})</h3>
+      </div>
+      <div class="crypto-details">
+        <p class="current-price">{{ asset.value.currentPrice | currency:'USD' }}</p>
+        <p class="change" [ngClass]="{'green': asset.value.changeDirection === 'up', 'red': asset.value.changeDirection === 'down'}">
+          {{ asset.value.change24h > 0 ? '↑' : '↓' }} {{ asset.value.change24h | number:'1.2-2' }}%
+        </p>
+        <p class="balance">Balance: {{ asset.value.balance | number:'1.4-4' }} {{ asset.value.symbol }}</p>
+        <p class="usd-value">Value: {{ asset.value.usdValue | currency:'USD' }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="trading-section">
+    <div class="trading-controls">
+      <div class="mode-tabs">
+        <button [ngClass]="{'active': activeMode === 'buy'}" (click)="selectMode('buy')">Buy</button>
+        <button [ngClass]="{'active': activeMode === 'sell'}" (click)="selectMode('sell')">Sell</button>
+      </div>
+      <div class="crypto-tabs">
+        <button [ngClass]="{'active': selectedCrypto === 'BTC'}" (click)="selectCrypto('BTC')">BTC</button>
+        <button [ngClass]="{'active': selectedCrypto === 'ETH'}" (click)="selectCrypto('ETH')">ETH</button>
+      </div>
+    </div>
+
+    <form [formGroup]="tradingForm" (ngSubmit)="performTransaction()" class="trading-form-card card">
+      <div class="form-group">
+        <label for="amount">Amount {{ selectedCrypto }}</label>
+        <input type="number" id="amount" formControlName="amount" placeholder="0.00" class="rounded-input">
+        <div *ngIf="tradingForm.get('amount')?.invalid && tradingForm.get('amount')?.touched" class="error-message">
+          Amount must be a positive number.
+        </div>
+      </div>
+      
+      <div class="estimated-price">
+        <p>Estimated Price:</p>
+        <p class="price-value">{{ estimatedPrice | currency:'USD' }}</p>
+      </div>
+
+      <button type="submit" [disabled]="!tradingForm.valid || estimatedPrice <= 0"
+        class="action-button" [ngClass]="{'buy-button': activeMode === 'buy', 'sell-button': activeMode === 'sell'}">
+        {{ activeMode === 'buy' ? 'Buy ' : 'Sell ' }} {{ selectedCrypto }}
+      </button>
+    </form>
+  </div>
+
+  <div class="transaction-history-section card">
+    <h3>Recent Transactions</h3>
+    <div class="table-responsive">
+      <table>
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Crypto</th>
+            <th>Date</th>
+            <th>Amount</th>
+            <th>USD Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let transaction of tradingHistory">
+            <td [ngClass]="{'buy-text': transaction.type === 'BUY', 'sell-text': transaction.type === 'SELL'}">{{ transaction.type }}</td>
+            <td>{{ transaction.crypto }}</td>
+            <td>{{ transaction.date }}</td>
+            <td>{{ transaction.amount | number:'1.4-4' }}</td>
+            <td>{{ transaction.usdPrice | currency:'USD' }}</td>
+          </tr>
+          <tr *ngIf="tradingHistory.length === 0">
+            <td colspan="5" class="no-transactions-message">No transactions yet.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+  

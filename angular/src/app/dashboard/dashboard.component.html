@@ -1,0 +1,84 @@
+<section class="dashboard-main">
+  <div class="dashboard-content-wrapper">
+    <div class="dashboard-content" [ngClass]="{'sidebar-closed': !sidebarOpen}">
+      <div class="global-summary-section">
+        <div class="summary-item">
+          <h3>Solde Total</h3>
+          <p class="summary-value">{{ totalBalance | currency:'EUR' }}</p>
+        </div>
+        <div class="summary-item">
+          <h3>Virements du Mois</h3>
+          <p class="summary-value">{{ monthlyTransfersCount }}</p>
+        </div>
+        <div class="summary-item">
+          <h3>Dépenses Mensuelles</h3>
+          <p class="summary-value">{{ monthlyExpenses | currency:'EUR' }}</p>
+        </div>
+        <!-- Placeholder for simplified chart -->
+        <div class="summary-item chart-placeholder">
+          <h3>Progression des Dépenses</h3>
+          <p>Graphique ici (Chart.js/ApexCharts)</p>
+        </div>
+      </div>
+
+      <div class="summary-cards-container">
+        <div class="summary-card">
+          <div class="card-icon"><i class="fas fa-university"></i></div>
+          <div class="card-details">
+            <h3>Compte Courant</h3>
+            <p class="balance">{{ currentAccountBalance | currency:'EUR' }}</p>
+          </div>
+        </div>
+        <div class="summary-card">
+          <div class="card-icon"><i class="fas fa-piggy-bank"></i></div>
+          <div class="card-details">
+            <h3>Livret A</h3>
+            <p class="balance">{{ savingsAccountBalance | currency:'EUR' }}</p>
+          </div>
+        </div>
+        <div class="summary-card">
+          <div class="card-icon"><i class="fab fa-bitcoin"></i></div>
+          <div class="card-details">
+            <h3>Crypto Wallet</h3>
+            <p class="balance">{{ cryptoWalletBalance | currency:'USD' }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="quick-actions-section dashboard-section">
+        <h2>Actions Rapides</h2>
+        <div class="quick-actions-buttons">
+          <button class="action-button transfer" routerLink="/transactions">
+            <i class="fas fa-exchange-alt"></i>
+            <span>Virement</span>
+          </button>
+          <button class="action-button receive" routerLink="/referral">
+            <i class="fas fa-money-bill-alt"></i>
+            <span>Recevoir</span>
+          </button>
+          <button class="action-button recharge" [routerLink]="['/recharge-list', accountId]">
+            <i class="fas fa-mobile-alt"></i>
+            <span>Recharge</span>
+          </button>
+          <button class="action-button crypto" routerLink="/crypto-wallet">
+            <i class="fab fa-ethereum"></i>
+            <span>Crypto</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="dashboard-sections-row">
+        <div class="dashboard-section transactions-section">
+          <h2>Transactions Récentes</h2>
+          <app-transaction></app-transaction>
+        </div>
+
+        <div class="dashboard-section beneficiaries-section">
+          <h2>Mes Bénéficiaires</h2>
+          <app-beneficier></app-beneficier>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

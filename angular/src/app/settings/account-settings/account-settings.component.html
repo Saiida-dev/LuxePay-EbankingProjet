@@ -1,0 +1,36 @@
+<div class="account-settings-container">
+  <div class="header">
+    <h2>Account Information</h2>
+    <button (click)="goToAddAccount()">Add Account</button>
+  </div>
+
+  <div *ngIf="account" class="account-details-card">
+    <p class="detail-item">
+      <span>Account Number:</span>
+      <span class="value">**** **** **** {{ getMaskedAccountNumber(account.accountNumber) }}</span>
+    </p>
+    <p class="detail-item">
+      <span>Account Type:</span>
+      <span class="value">{{ account.type | titlecase }}</span>
+    </p>
+    <p class="detail-item">
+      <span>Creation Date:</span>
+      <span class="value">{{ account.date_creation }}</span>
+    </p>
+    <p class="detail-item">
+      <span>Balance:</span>
+      <span class="value balance-value">{{ account.solde | currency:'EUR' }}</span>
+    </p>
+    <p class="detail-item">
+      <span>Status:</span>
+      <span class="value status-value" [ngClass]="account.status ? 'active' : 'desactive'">
+        {{ account.status ? 'Active' : 'Inactive' }}
+      </span>
+    </p>
+  </div>
+
+  <div *ngIf="!account" class="no-account-message">
+    <p>No account details found. Please add an account or check your login status.</p>
+    <button (click)="goToAddAccount()">Add New Account</button>
+  </div>
+</div>

@@ -1,0 +1,106 @@
+.account-settings-container {
+    background-color: #2c2c2c; /* Dark background */
+    color: #f0f0f0; /* White text */
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+  }
+  
+  .header h2 {
+    font-size: 24px;
+    color: #f0f0f0;
+    margin: 0;
+  }
+  
+  .header button {
+    background: linear-gradient(135deg, #8e44ad, #3498db); /* Purple-blue gradient */
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 18px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .header button:hover {
+    background: #3498db;
+  }
+  
+  .account-details-card {
+    background-color: #f0f2f5; /* Light grey background */
+    color: #333; /* Dark text for contrast */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1); /* Lighter shadow */
+  }
+  
+  .detail-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd; /* Lighter separator */
+    font-size: 16px;
+  }
+  
+  .detail-item:last-child {
+    border-bottom: none;
+  }
+  
+  .detail-item span:first-child {
+    font-weight: 500;
+    color: #555; /* Darker gray for labels */
+  }
+  
+  .detail-item span.value {
+    font-weight: 700;
+    color: #333; /* Dark text for values */
+  }
+  
+  .balance-value {
+    color: #28a745; /* Green for balance */
+  }
+  
+  .status-value.active {
+    color: #28a745; /* Green for active status */
+    font-weight: bold;
+  }
+  
+  .status-value.desactive {
+    color: #dc3545; /* Red for inactive status */
+    font-weight: bold;
+  }
+  
+  .no-account-message {
+    text-align: center;
+    padding: 30px;
+    background-color: #f0f2f5; /* Light background */
+    border-radius: 10px;
+    color: #333;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .no-account-message button {
+    margin-top: 20px;
+    background: linear-gradient(135deg, #28a745, #218838);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .no-account-message button:hover {
+    background: #218838;
+  }

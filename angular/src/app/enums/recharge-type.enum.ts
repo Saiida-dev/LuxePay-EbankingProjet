@@ -1,0 +1,7 @@
+export enum RechargeType {
+  TELEPHONE = 'TELEPHONE',
+  INTERNET = 'INTERNET',
+  ELECTRICITY = 'ELECTRICITY',
+  NETFLIX = 'NETFLIX',
+  SPOTIFY = 'SPOTIFY'
+}

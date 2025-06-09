@@ -1,0 +1,16 @@
+<div class="recharge-container">
+  <div class="header">
+    <h2>Select Recharge Service</h2>
+  </div>
+
+  <div class="service-list">
+    <div *ngFor="let service of serviceTypes" class="service-card" (click)="selectService(service)">
+      <img [src]="rechargeService.getIconPath(service.icon)" alt="{{ service.name }} Icon" class="service-icon">
+      <h3>{{ service.name }}</h3>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button routerLink="/recharge-history/{{accountId}}">View Recharge History</button>
+  </div>
+</div> 

@@ -1,0 +1,101 @@
+.recharge-container {
+    background-color: #f8f9fa; /* Light background */
+    color: #333;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+  
+  .header h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .service-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 20px;
+  }
+  
+  .service-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .service-icon {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin-bottom: 10px;
+  }
+  
+  .service-card h3 {
+    font-size: 18px;
+    color: #333;
+    margin: 0;
+  }
+  
+  .actions {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .actions button {
+    background: linear-gradient(to right, #2563eb, #7c3aed); /* Apply new gradient */
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    padding: 12px 25px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+  
+  .actions button:hover {
+    background: linear-gradient(to right, #1a4ed8, #6428c9); /* Darker gradient on hover */
+    transform: translateY(-2px);
+  }
+  
+  @media (max-width: 768px) {
+    .recharge-container {
+      padding: 20px;
+    }
+  
+    .service-list {
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: 15px;
+    }
+  
+    .service-icon {
+      width: 50px;
+      height: 50px;
+    }
+  
+    .service-card h3 {
+      font-size: 16px;
+    }
+  
+    .actions button {
+      padding: 10px 20px;
+      font-size: 14px;
+    }
+  } 

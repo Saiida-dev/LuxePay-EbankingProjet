@@ -1,0 +1,39 @@
+<header class="top-bar-container">
+  <div class="top-bar-left">
+    <img src="assets/images/LOGO.png" alt="LuxePay Logo" class="header-logo-img" (click)="toggleSidebar()">
+    <span class="header-logo-text">LuxePay</span>
+  </div>
+
+  <div class="top-bar-right">
+
+    <!-- Notifications -->
+    <div class="notification-container" (click)="toggleNotificationDropdown()">
+      <i class="fas fa-bell"></i>
+      <span class="notification-badge" *ngIf="unreadNotificationsCount > 0">{{ unreadNotificationsCount }}</span>
+      <div class="notifications-dropdown" [class.show]="isNotificationDropdownOpen">
+        <div *ngIf="notifications.length === 0" class="no-notifications">
+          <p>Aucune notification.</p>
+        </div>
+        <div *ngFor="let notification of notifications" class="notification-item" (click)="markAsRead(notification)">
+          <p>{{ notification.title }}</p>
+          <span>{{ notification.date | date:'short' }}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Séparateur visuel -->
+    <div class="header-separator"></div>
+
+    <!-- Profil -->
+    <div class="profile-menu-container" (click)="toggleProfileDropdown()">
+      <i class="fas fa-user-circle profile-avatar"></i>
+      <span class="user-name">{{ userName }}</span>
+      <div class="profile-dropdown" [class.show]="isProfileDropdownOpen">
+        <a class="dropdown-item" routerLink="/my-profile">Mon profil</a>
+        <a class="dropdown-item" routerLink="/settings">Paramètres</a>
+        <a class="dropdown-item" (click)="logout()">Déconnexion</a>
+      </div>
+    </div>
+  </div>
+</header>
+

@@ -1,0 +1,188 @@
+.accounts-page {
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  margin-bottom: 20px;
+}
+
+.header > h1 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #333;
+}
+
+.header > button {
+  background: linear-gradient(to right, #2563eb, #7c3aed);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 8px 15px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.header > button:hover {
+  background: linear-gradient(to right, #1a4ed8, #6428c9);
+}
+
+.add-account-form {
+  background-color: #f8f8f8;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: #555;
+}
+
+.form-group input[type="number"],
+.form-group input[type="date"],
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.add-account-form button[type="submit"] {
+  background: linear-gradient(135deg, #28a745, #218838);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.add-account-form button[type="submit"]:hover {
+  background: #218838;
+}
+
+.accounts-list {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.account-card {
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease-in-out;
+}
+
+.account-card:hover {
+  transform: translateY(-5px);
+}
+
+.account-info-main {
+  margin-bottom: 15px;
+}
+
+.account-name h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.account-type {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 10px;
+}
+
+.account-number {
+  font-family: 'monospace';
+  font-size: 16px;
+  color: #555;
+}
+
+.account-number .iban {
+  font-size: 13px;
+  color: #999;
+  margin-top: 5px;
+}
+
+.account-balance .balance {
+  font-size: 28px;
+  font-weight: 800;
+  background: linear-gradient(to right, #2563eb, #7c3aed);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  margin-top: 15px;
+  text-align: right;
+}
+
+.account-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.account-actions button {
+  background-color: #f0f2f5;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 13px;
+  color: #555;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.account-actions button:hover {
+  background-color: #e0e2e5;
+}
+
+.account-actions button i {
+  font-size: 15px;
+}
+
+.active {
+  color: green;
+}
+
+.desactive {
+  color: red;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .accounts-list {
+    grid-template-columns: 1fr;
+  }
+}

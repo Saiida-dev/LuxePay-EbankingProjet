@@ -1,0 +1,30 @@
+# Angular
+angular/node_modules/
+angular/dist/
+angular/.angular/cache/
+angular/.env
+angular/.vscode/
+
+# Spring / Maven
+spring/target/
+spring/.idea/
+spring/.classpath
+spring/.project
+spring/.settings/
+spring/.env
+
+# Logs
+*.log
+
+# IDEs & OS
+*.iml
+*.sublime-workspace
+*.sublime-project
+*.swp
+*.bak
+*.tmp
+.DS_Store
+Thumbs.db
+
+# Docker
+docker-compose.override.yml

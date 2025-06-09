@@ -1,0 +1,21 @@
+version: "3.8"
+
+services:
+  backend:
+    build: ./spring
+    ports:
+      - "8080:8080"
+    networks:
+      - mynetwork
+
+  frontend:
+    build: ./angular
+    ports:
+      - "4200:80"
+    depends_on:
+      - backend  
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:

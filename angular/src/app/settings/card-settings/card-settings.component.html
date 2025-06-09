@@ -1,0 +1,34 @@
+<div class="card-settings-container">
+  <div class="header">
+    <h2>Card Information</h2>
+    <button (click)="goToAddCard()">Add Card</button>
+  </div>
+
+  <div *ngIf="cards.length > 0" class="cards-list">
+    <div *ngFor="let card of cards" class="card-details-card">
+      <div class="card-header">
+        <img [src]="getCardLogo(card.carte_type)" alt="Card Logo" class="card-logo">
+        <span class="card-type">{{ card.carte_type | titlecase }}</span>
+      </div>
+      <p class="detail-item">
+        <span>Card Number:</span>
+        <span class="value">{{ getMaskedCardNumber(card.numero_carte) }}</span>
+      </p>
+      <p class="detail-item">
+        <span>Expiration Date:</span>
+        <span class="value">{{ formatExpirationDate(card.expiration_date) }}</span>
+      </p>
+      <p class="detail-item">
+        <span>Status:</span>
+        <span class="value status-value" [ngClass]="card.status ? 'active' : 'desactive'">
+          {{ card.status ? 'Active' : 'Inactive' }} 
+        </span>
+      </p>
+    </div>
+  </div>
+
+  <div *ngIf="cards.length === 0" class="no-cards-message">
+    <p>No card details found. Please add a new card.</p>
+    <button (click)="goToAddCard()">Add New Card</button>
+  </div>
+</div>

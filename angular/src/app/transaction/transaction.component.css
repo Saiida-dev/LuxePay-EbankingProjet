@@ -1,0 +1,107 @@
+.transaction-container {
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    color: #333;
+    border-radius: 0;
+  }
+  
+  .transaction-container h1 {
+    display: none;
+  }
+  .tran-warpper{
+    height: auto;
+    max-height: 300px;
+    overflow-y: auto;
+    padding-right: 5px;
+  }
+  
+  .transaction {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    transition: all 0.3s ease-in-out;
+  }
+  .transaction:hover{
+    background-color: #f9f9fc;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transform: translateY(-2px);
+  }
+  
+  .transaction:last-child {
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  .transaction-info {
+    display: flex;
+    align-items: center;
+  }
+  
+  .transaction-icon {
+    margin-right: 15px;
+  }
+  
+  .transaction-icon .icon {
+    font-size: 28px;
+    background: linear-gradient(to right, #2563eb, #7c3aed);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  .transaction-details h2 {
+    margin: 0;
+    font-size: 1.1em;
+    color: #333;
+    font-weight: 600;
+  }
+  
+  .transaction-details p {
+    margin: 0;
+    font-size: 0.9em;
+    color: #666;
+  }
+  
+  .transaction-type p {
+    margin: 0;
+    text-align: right;
+    color: #333;
+  }
+  
+  .transaction-category {
+    font-size: 0.9em;
+    color: #666;
+  }
+  
+  .transaction-amount {
+    text-align: right;
+  }
+  
+  .transaction-amount p {
+    margin: 0;
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  
+  .transaction-amount .positive {
+    color: #28a745;
+  }
+  
+  .transaction-amount .negative {
+    color: #dc3545;
+  }
+  
+  .transaction-status {
+    font-size: 0.85em;
+    color: #28a745;
+    font-weight: 500;
+    padding: 3px 8px;
+    border-radius: 5px;
+    background-color: rgba(40, 167, 69, 0.1);
+  }

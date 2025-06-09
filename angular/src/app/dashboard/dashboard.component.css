@@ -1,0 +1,315 @@
+.dashboard-main {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f7f9fc; /* Lighter grey background */
+  font-family: 'Inter', 'Segoe UI', sans-serif; /* Modern font */
+  color: #333;
+  margin-left: 0 !important; /* Ensure no fixed left margin */
+}
+
+.dashboard-content-wrapper {
+  display: flex;
+  height: 100%;
+}
+
+.dashboard-content {
+  flex-grow: 1;
+  padding: 0; /* Remove padding to eliminate unwanted space from header */
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.global-summary-section {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  background-color: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.summary-item {
+  flex: 1;
+  min-width: 200px;
+  text-align: center;
+  padding: 15px 10px;
+  border-right: 1px solid #eee;
+}
+
+.summary-item:last-child {
+  border-right: none;
+}
+
+.summary-item h3 {
+  font-size: 1.1em;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.summary-item .summary-value {
+  font-size: 1.6em;
+  font-weight: bold;
+  background: linear-gradient(to right, #2563eb, #7c3aed); /* Apply gradient */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent; /* Fallback for browsers not supporting background-clip */
+}
+
+.summary-item.chart-placeholder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f2f5;
+  border-radius: 8px;
+  color: #999;
+  font-style: italic;
+}
+
+.summary-item.chart-placeholder h3 {
+  margin-bottom: 5px;
+}
+
+.summary-cards-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.summary-card {
+  background-color: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex: 1;
+  min-width: 280px;
+  transition: all 0.3s ease-in-out; /* Smoother transition for relief effect */
+}
+
+.summary-card:hover {
+  transform: translateY(-8px); /* More pronounced lift */
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15); /* Stronger shadow on hover */
+}
+
+.card-icon img {
+  width: 48px;
+  height: 48px;
+}
+
+.card-icon i {
+  font-size: 50px; /* Slightly larger icons for better visibility */
+  background: linear-gradient(to right, #2563eb, #7c3aed); /* Apply gradient */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent; /* Fallback for browsers not supporting background-clip */
+}
+
+.card-details h3 {
+  font-size: 1.2em;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.balance {
+  font-size: 1.8em;
+  font-weight: bold;
+  background: linear-gradient(to right, #2563eb, #7c3aed); /* Apply gradient */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent; /* Fallback for browsers not supporting background-clip */
+}
+
+.quick-actions-section {
+  background-color: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.quick-actions-section h2 {
+  font-size: 1.5em;
+  background: linear-gradient(to right, #2563eb, #7c3aed); /* Apply gradient */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent; /* Fallback for browsers not supporting background-clip */
+  margin-bottom: 20px;
+  text-align: left; /* Aligned left for better readability */
+}
+
+.quick-actions-buttons {
+  display: flex;
+  justify-content: space-around;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.action-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 20px;
+  border-radius: 12px; /* More rounded corners */
+  border: none;
+  color: white;
+  font-weight: 600;
+  font-size: 1em;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  width: 120px; /* Fixed width for uniformity */
+  height: 100px; /* Fixed height for uniformity */
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3); /* Soft shadow */
+}
+
+.action-button:hover {
+  transform: translateY(-5px) scale(1.05); /* Lift and slight scale */
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4); /* More prominent shadow on hover */
+}
+
+.action-button i {
+  font-size: 35px;
+  margin-bottom: 8px;
+  color: white; /* Default icon color for actions */
+}
+
+.action-button.recharge i {
+  color: white; /* Changed to white for better contrast on gradient */
+}
+
+.action-button.transfer {
+  background: linear-gradient(to right, #2563eb, #7c3aed); /* Apply new gradient */
+}
+.action-button.receive {
+  background: linear-gradient(to right, #2563eb, #7c3aed); /* Blue to Purple Gradient */
+}
+.action-button.recharge {
+  background: linear-gradient(to right, #2563eb, #7c3aed); /* Apply new gradient */
+  color: white; /* Changed to white for better contrast on gradient */
+}
+.action-button.crypto {
+  background: linear-gradient(to right, #2563eb, #7c3aed); /* Blue to Purple Gradient */
+}
+
+.dashboard-sections-row {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.dashboard-section {
+  background-color: #ffffff;
+  padding: 30px; /* More padding */
+  border-radius: 15px; /* More rounded corners */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08); /* Softer shadow */
+  flex: 1;
+  min-width: 48%; /* Adjust for 2 columns with gap */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.dashboard-section h2 {
+  font-size: 1.5em;
+  background: linear-gradient(to right, #2563eb, #7c3aed); /* Apply gradient */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent; /* Fallback for browsers not supporting background-clip */
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+  text-align: left; /* Aligned left for better readability */
+}
+
+.dashboard-section:hover {
+  transform: translateY(-5px); /* Lift effect */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12); /* Stronger shadow on hover */
+}
+
+/* Override existing styles for transactions and beneficiaries if they have dark themes */
+.transaction h1, .beneficier h1 {
+  background: linear-gradient(to right, #2563eb, #7c3aed); /* Apply gradient */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent; /* Fallback for browsers not supporting background-clip */
+}
+
+.transaction-header button {
+  background: linear-gradient(to right, #2563eb, #7c3aed); /* Apply gradient */
+  color: white;
+}
+
+/* Ensure existing components adapt to the new white background */
+app-transaction, app-beneficier, app-carte-bancaire, app-account {
+  background-color: transparent; /* Allow parent card background to show */
+}
+
+/* Existing status badges, if any, ensure they are visible on white */
+.status-badge {
+  color: white !important;
+}
+
+.status-pending {
+  color: #333 !important; /* Ensure readable text on amber */
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .global-summary-section {
+    flex-direction: column;
+    align-items: center;
+  }
+  .summary-item {
+    border-right: none;
+    border-bottom: 1px solid #eee;
+    width: 90%;
+    text-align: left;
+  }
+  .summary-item:last-child {
+    border-bottom: none;
+  }
+
+  .dashboard-sections-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .dashboard-section {
+    min-width: 90%;
+  }
+
+  .summary-cards-container {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .summary-cards-container,
+  .quick-actions-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .summary-card,
+  .action-button {
+    width: 90%;
+    min-width: unset;
+  }
+}
+
+@media (max-width: 480px) {
+  .summary-card,
+  .action-button {
+    width: 100%;
+  }
+}

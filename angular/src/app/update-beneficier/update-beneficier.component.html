@@ -1,0 +1,25 @@
+<div class="form-container">
+    <h2>Update Beneficiary</h2>
+    <form [formGroup]="formBeneficier" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input id="username" formControlName="username" type="text">
+        </div>
+        <div class="form-group">
+            <label for="bank">Bank</label>
+            <input id="bank" formControlName="bank" type="text">
+        </div>
+        <div class="form-group">
+            <label for="account_number">Account Number</label>
+            <input id="account_number" formControlName="account_number" type="text">
+        </div>
+        <div class="form-group">
+            <label for="compteId">Compte ID</label>
+            <input id="compteId" formControlName="compteId" type="text">
+        </div>
+        <div class="form-group">
+            <button type="submit">Update</button>
+        </div>
+    </form>
+    <!-- <a href="/dashboard/{{Id}}" class="close">Close</a> -->
+</div>

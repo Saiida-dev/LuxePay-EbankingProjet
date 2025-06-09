@@ -1,0 +1,11 @@
+<div class="app-container">
+  <app-header (toggleSidebarEvent)="toggleSidebar()" *ngIf="showNavbarAndHeader"></app-header>
+  <div class="layout" *ngIf="showNavbarAndHeader">
+    <app-nav *ngIf="sidebarOpen" [sidebarOpen]="sidebarOpen"></app-nav>
+    <div class="backdrop" *ngIf="!sidebarOpen && isMobileView" (click)="toggleSidebar()"></div>
+    <div class="router-content" [ngClass]="{'with-sidebar': sidebarOpen}">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  <router-outlet *ngIf="!showNavbarAndHeader"></router-outlet>
+</div>

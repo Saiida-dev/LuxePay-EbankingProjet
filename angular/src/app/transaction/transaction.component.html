@@ -1,0 +1,27 @@
+<div class="transaction-container">
+    <div class="tran-warpper">
+      <div class="transaction" *ngFor="let transaction of transactionsList">
+        <div class="transaction-info">
+          <div class="transaction-icon-wrapper" [ngClass]="getIconWrapperClass(transaction)">
+            <i class="icon" [ngClass]="getIconClass(transaction)"></i>
+          </div>
+          <div class="transaction-details">
+            <h2>
+              {{ transaction.description_transaction }}
+              <span *ngIf="getCategoryLabel(transaction)" class="transaction-badge">{{ getCategoryLabel(transaction) }}</span>
+            </h2>
+            <p>{{ transaction.transactionDate }}, {{ transaction.transactionTimer }}</p>
+          </div>
+        </div>
+        <div class="transaction-type">
+          <p>{{ transaction.type_transaction }}</p>
+          <p class="transaction-category">{{ transaction.bank_transaction }}</p>
+        </div>
+        <div class="transaction-amount" [ngClass]="{'positive': transaction.montant > 0, 'negative': transaction.montant < 0}">
+          <p>{{ transaction.montant | currency:'EUR' }}</p>
+          <p class="transaction-status">Success</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  

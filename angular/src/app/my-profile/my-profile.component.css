@@ -1,0 +1,283 @@
+.my-profile-container {
+    display: flex;
+    gap: 30px;
+    padding: 30px;
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    min-height: calc(100vh - 100px);
+  }
+  
+  .profile-content {
+    flex: 2; /* Takes more space */
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+  
+  .profile-sidebar {
+    flex: 1; /* Takes less space */
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+  
+  .card {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e0e0e0;
+  }
+  
+  .card h3 {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+  }
+  
+  /* Form Styling */
+  .profile-form .form-group {
+    margin-bottom: 18px;
+  }
+  
+  .profile-form label {
+    display: block;
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  
+  .profile-form input[type="text"],
+  .profile-form input[type="email"],
+  .profile-form input[type="password"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .profile-form input:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.3);
+  }
+  
+  .profile-form .error-message {
+    color: #e74c3c;
+    font-size: 13px;
+    margin-top: 5px;
+  }
+  
+  .update-button {
+    background: linear-gradient(to right, #2563eb, #7c3aed);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    margin-top: 20px;
+    width: auto;
+  }
+  
+  .update-button:hover {
+    background: linear-gradient(to right, #1a4ed8, #6428c9);
+    transform: translateY(-2px);
+  }
+  
+  .update-button:disabled {
+    background: #cccccc;
+    cursor: not-allowed;
+    transform: none;
+  }
+  
+  /* Profile Card */
+  .profile-card {
+    text-align: center;
+    padding: 30px 25px;
+  }
+  
+  .profile-picture-container {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border: 3px solid #2563eb;
+  }
+  
+  .profile-picture-circle {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  
+  .profile-initials-circle {
+    font-size: 48px;
+    font-weight: bold;
+    background: linear-gradient(to right, #2563eb, #7c3aed);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  .change-photo-button {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    cursor: pointer;
+  }
+  
+  .profile-name {
+    font-size: 24px;
+    margin-bottom: 5px;
+    color: #333;
+  }
+  
+  .profile-email {
+    font-size: 16px;
+    color: #777;
+  }
+  
+  /* Settings Card */
+  .settings-options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .setting-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .setting-item:hover {
+    background-color: #f0f0f0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+  
+  .setting-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+  }
+  
+  .setting-item span {
+    flex-grow: 1;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .configure-button {
+    background-color: #e0e0e0;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .configure-button:hover {
+    background-color: #d3d3d3;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 992px) {
+    .my-profile-container {
+      flex-direction: column;
+      padding: 20px;
+    }
+  
+    .profile-content,
+    .profile-sidebar {
+      flex: none;
+      width: 100%;
+    }
+  
+    .profile-card, .settings-card {
+      padding: 25px;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .card h3 {
+      font-size: 20px;
+    }
+  
+    .profile-form input {
+      font-size: 15px;
+      padding: 10px 12px;
+    }
+  
+    .update-button {
+      padding: 10px 20px;
+      font-size: 15px;
+    }
+  
+    .profile-picture-container {
+      width: 100px;
+      height: 100px;
+    }
+  
+    .profile-initials-circle {
+      font-size: 40px;
+    }
+  
+    .profile-name {
+      font-size: 20px;
+    }
+  
+    .profile-email {
+      font-size: 14px;
+    }
+  
+    .setting-item {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 5px;
+    }
+  
+    .setting-item span {
+      text-align: left;
+      width: 100%;
+    }
+  
+    .configure-button {
+      width: 100%;
+      margin-top: 10px;
+    }
+  }
+

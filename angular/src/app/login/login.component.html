@@ -1,0 +1,30 @@
+<div class="login-container">
+  <div class="login-card">
+    <h2 class="login-title">Bienvenue sur LuxePay</h2>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+      <!-- Champ Nom d'utilisateur -->
+      <div class="input-group">
+        <span class="input-icon"><i class="fas fa-user"></i></span>
+        <input type="text" placeholder="Nom d'utilisateur" formControlName="username" required />
+      </div>
+
+      <!-- Champ Mot de passe -->
+      <div class="input-group password-group">
+        <span class="input-icon"><i class="fas fa-lock"></i></span>
+        <input [type]="showPassword ? 'text' : 'password'" placeholder="Mot de passe" formControlName="password" required />
+        <button type="button" class="toggle-password-btn" (click)="togglePassword()">
+          <i class="fas" [ngClass]="showPassword ? 'fa-eye-slash' : 'fa-eye'"></i>
+        </button>
+      </div>
+
+      <!-- Bouton Connexion -->
+      <button class="login-btn" type="submit">Se connecter</button>
+    </form>
+
+    <p class="register-link-text">
+      Pas encore inscrit ? <a routerLink="/register">Créer un compte</a>
+    </p>
+  </div>
+</div>

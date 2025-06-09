@@ -1,0 +1,28 @@
+<div class="container main">
+    <div class="header">
+        <div class="img">
+            <img src="../../assets/images/green minimalist online wallet logo.png" width="100%">
+        </div>
+    </div>
+
+    <div class="hero-main">
+        <div class="hero-left">
+            <h1>PLEASE Choose your <span>e-bank</span> account <span> ?</span></h1>
+            <P>Please select the bank account you wish to access from the list below</P><br>
+            <div class="img3">
+                <img src="../../assets/images/green minimalist online wallet logo.png" width="100%">
+            </div>
+        </div>
+        <div class="hero-right">
+                <div class="cards">
+                    <div class="card-item" *ngFor="let account of account_list">
+                        <div class="img2">
+                            <img src="../../assets/icons/balance.png" alt="">
+                        </div>
+                        <h1 id="account-id">{{account.accountNumber}}</h1>
+                        <a href="/dashboard/{{account.id}}">view</a>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>

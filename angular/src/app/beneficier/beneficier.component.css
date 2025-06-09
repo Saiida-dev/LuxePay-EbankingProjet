@@ -1,0 +1,130 @@
+.beneficiary-section-container {
+    margin: 0; /* Remove margin as parent provides spacing */
+    padding: 0; /* Remove padding as parent provides it */
+    background-color: transparent; /* Make background transparent to match parent dashboard section */
+    color: #333; /* Default text color for the container */
+    border-radius: 0; /* No border radius here */
+  }
+  
+  .beneficiary-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Space between beneficiary cards */
+  }
+  
+  .beneficiary-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px; /* Consistent padding with transactions */
+    background-color: #ffffff; /* White background for each card */
+    border: 1px solid #e0e0e0; /* Fine border around each card */
+    border-radius: 8px; /* Slightly rounded corners for each card */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Light shadow */
+    transition: all 0.3s ease-in-out; /* Smooth transition for hover */
+  }
+  
+  .beneficiary-card:hover {
+    background-color: #f8f9fc; /* Slightly lighter grey on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08); /* Stronger, softer shadow on hover */
+    transform: translateY(-2px); /* Slight lift on hover */
+  }
+  
+  .beneficiary-info {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+  }
+  
+  .beneficiary-icon-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 48px; /* Circular icon wrapper */
+    height: 48px;
+    border-radius: 50%;
+    background-color: #e3f2fd; /* Light blue background for icon */
+    margin-right: 15px;
+  }
+  
+  .beneficiary-icon-wrapper i {
+    font-size: 24px; /* Icon size */
+    color: #2196f3; /* Blue icon color */
+  }
+  
+  .beneficiary-info .details h3 {
+    margin: 0;
+    font-size: 1.1em;
+    color: #333; /* Dark text */
+    font-weight: 600;
+  }
+  
+  .beneficiary-info .details p {
+    margin: 0;
+    font-size: 0.9em;
+    color: #666; /* Medium grey for details */
+  }
+  
+  .beneficiary-actions {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .beneficiary-actions .action-button {
+    padding: 6px 12px; /* Adjusted padding */
+    border-radius: 10px; /* More rounded corners */
+    border: none; /* Ensure no border */
+    outline: none; /* Ensure no outline */
+    font-size: 0.9em;
+    font-weight: 500;
+    cursor: pointer;
+    color: #fff; /* White text for all buttons */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .beneficiary-actions .action-button.update {
+    background: linear-gradient(to right, #2563eb, #7c3aed); /* LuxePay gradient */
+  }
+  
+  .beneficiary-actions .action-button.update:hover {
+    background: linear-gradient(to right, #1a4ed8, #6428c9); /* Darker gradient on hover */
+    box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2); /* More prominent shadow on hover */
+    transform: translateY(-2px); /* Slight lift */
+  }
+  
+  .beneficiary-actions .action-button.delete {
+    background-color: #ef4444; /* Soft modern red */
+  }
+  
+  .beneficiary-actions .action-button.delete:hover {
+    background-color: #dc2626; /* Darker red on hover */
+    box-shadow: 0 4px 10px rgba(239, 68, 68, 0.2); /* More prominent shadow on hover */
+    transform: translateY(-2px); /* Slight lift */
+  }
+  
+  .no-beneficiaries-message {
+    text-align: center;
+    padding: 20px;
+    color: #666;
+    font-style: italic;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .beneficiary-card {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 15px;
+    }
+  
+    .beneficiary-actions {
+      width: 100%;
+      justify-content: flex-end;
+    }
+  
+    .beneficiary-info {
+      width: 100%;
+    }
+  }

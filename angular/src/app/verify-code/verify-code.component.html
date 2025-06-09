@@ -1,0 +1,29 @@
+<div class="login-container">
+  <div class="login-card">
+    <h2 class="login-title">E-Banking 2.0</h2>
+    <p class="subtitle">Connectez-vous à votre compte</p>
+
+    <div class="icon">
+      <i class="fas fa-mobile-alt"></i>
+    </div>
+
+    <p class="sms-info">Code de vérification envoyé par SMS</p>
+
+    <form [formGroup]="codeForm" (ngSubmit)="onVerify()">
+      <input class="sms-input" formControlName="code" type="text" maxlength="6" placeholder="Code à 6 chiffres">
+      <button class="login-btn" type="submit">Vérifier</button>
+    </form>
+
+    <p class="register-link-text">
+      Pas encore inscrit ? <a routerLink="/register">Créer un compte</a>
+    </p>
+
+    <hr style="margin: 20px 0; border: none; border-top: 1px solid #eee;">
+
+    <p class="biometric-section">Authentification biométrique (bientôt disponible)</p>
+    <div class="biometric-icons">
+      <i class="fas fa-hand-pointer icon"></i>
+      <i class="fas fa-eye icon"></i>
+    </div>
+  </div>
+</div>

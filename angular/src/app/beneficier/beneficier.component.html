@@ -1,0 +1,23 @@
+<div class="beneficiary-section-container">
+    <div class="beneficiary-wrapper">
+      <div class="beneficiary-card" *ngFor="let beneficier of BeneficierList">
+        <div class="beneficiary-info">
+          <div class="beneficiary-icon-wrapper">
+            <i class="far fa-user"></i> 
+          </div>
+          <div class="details">
+            <h3>{{beneficier.username}}</h3>
+            <p class="account-number">{{beneficier.account_number}}</p>
+            <p class="bank-name">{{beneficier.bank}}</p>
+          </div>
+        </div>
+        <div class="beneficiary-actions">
+          <a [routerLink]="['/beneficier', beneficier?.id]" *ngIf="beneficier" class="action-button update">Update</a>
+          <button class="action-button delete" (click)="deleteBeneficier(beneficier.id)">Delete</button>
+        </div>
+      </div>
+      <div *ngIf="BeneficierList.length === 0" class="no-beneficiaries-message">
+        <p>You don't have any beneficiaries yet. Add one to make transfers easier!</p>
+      </div>
+    </div>       
+</div>

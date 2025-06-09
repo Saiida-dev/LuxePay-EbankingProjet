@@ -1,0 +1,40 @@
+<div class="ai-assistant-container">
+  <div class="chat-area">
+    <div class="messages-display">
+      <div *ngFor="let message of messages" class="message-bubble-wrapper" [ngClass]="message.sender">
+        <div class="message-bubble">
+          <p>{{ message.content }}</p>
+          <span class="message-timestamp">{{ message.timestamp | date:'shortTime' }}</span>
+        </div>
+      </div>
+    </div>
+
+    <form [formGroup]="chatForm" (ngSubmit)="sendMessage()" class="message-input-area">
+      <input type="text" formControlName="message" placeholder="Type your message..." class="chat-input">
+      <button type="submit" [disabled]="!chatForm.valid" class="send-button">
+        <img src="assets/icons/send-plane.png" alt="Send" class="send-icon">
+      </button>
+    </form>
+  </div>
+
+  <div class="sidebar-right">
+    <div class="frequent-questions card">
+      <h3>Questions fréquentes</h3>
+      <div class="question-list">
+        <button *ngFor="let question of frequentlyAskedQuestions" (click)="sendQuickQuestion(question)" class="question-button">
+          {{ question }}
+        </button>
+      </div>
+    </div>
+
+    <div class="ai-features card">
+      <h3>Fonctionnalités IA</h3>
+      <ul class="feature-list">
+        <li *ngFor="let feature of aiFeatures">
+          <img [src]="getIconPath(feature.icon)" alt="{{ feature.name }} icon" class="feature-icon">
+          {{ feature.name }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

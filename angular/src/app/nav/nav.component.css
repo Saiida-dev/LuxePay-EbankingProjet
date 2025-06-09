@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+.sidebar-container {
+  width: 250px; /* Fixed width for the sidebar */
+  background-color: #f4f6fb; /* Light blue/off-white background */
+  padding: 25px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-right: 1px solid #e0e0e0; /* Subtle border to separate from main content */
+  font-family: 'Poppins', 'Inter', 'Montserrat', sans-serif; /* Elegant fonts */
+  box-shadow: 2px 0 6px rgba(0, 0, 0, 0.08); /* Soft shadow for visual delimitation */
+  position: fixed; /* Ensures it stays in place */
+  top: 60px; /* Aligns correctly below the fixed header */
+  left: 0;
+  height: calc(100vh - 60px); /* Fill remaining vertical space */
+  transition: transform 0.3s ease-in-out; /* Only transform for smoother animation */
+  z-index: 999; /* Ensure it's below the header but above content */
+}
+
+.sidebar-container.sidebar-closed {
+  transform: translateX(-100%);
+  width: 0; /* Collapse width when closed */
+  overflow: hidden; /* Hide content when collapsed */
+}
+
+/* Backdrop overlay for mobile */
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 998; /* Below sidebar, above content */
+  display: none; /* Hidden by default */
+}
+
+.sidebar-container.sidebar-closed + .backdrop {
+  display: none; /* Hide backdrop when sidebar is closed */
+}
+
+.sidebar-container:not(.sidebar-closed) + .backdrop {
+  display: block; /* Show backdrop when sidebar is open */
+}
+
+.sidebar-header {
+  display: none; /* Hide the header as content moved to main header */
+}
+
+.sidebar-nav {
+  flex-grow: 1;
+  padding-top: 20px; /* Add some space at the top of the nav links */
+}
+
+.nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-item {
+  margin-bottom: 12px; /* Increased space between items for better readability */
+}
+
+.nav-item a {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px; /* Adjusted padding */
+  text-decoration: none;
+  color: #1b1f3b; /* Dark elegant text color */
+  font-weight: 600; /* Bolder font for links */
+  font-size: 13px; /* Slightly reduced font size for lightness */
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+  gap: 20px; /* Increased space between icon and text */
+}
+
+.nav-item a:hover {
+  background: linear-gradient(to right, rgba(37, 99, 235, 0.1), rgba(124, 58, 237, 0.1)); /* Soft gradient background on hover */
+  color: #1b1f3b; /* Keep dark text for contrast on soft gradient */
+  transform: translateX(5px); /* Slight slide effect */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Subtle shadow on hover */
+}
+
+.nav-item a.active-link {
+  background: linear-gradient(to right, #2563eb, #7c3aed); /* Gradient for active link */
+  color: white; /* White text for active link */
+  font-weight: 700; /* Even bolder for active */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-left: 5px solid #2563eb; /* Use start color of gradient for border */
+  padding-left: 10px; /* Adjust padding due to border */
+}
+
+.nav-icon {
+  font-size: 1.5em; /* Slightly larger icons for better visibility */
+  min-width: 25px; /* Ensure consistent icon alignment */
+  text-align: center;
+  color: #666; /* Default icon color */
+}
+
+.nav-item a.active-link .nav-icon {
+  color: white; /* Active icon color */
+}
+
+.sidebar-bottom {
+  padding-top: 20px;
+  border-top: 1px solid #e0e0e0; /* Separator for bottom section */
+  display: flex;
+  flex-direction: column; /* Stack user and button vertically */
+  align-items: center;
+  gap: 15px;
+}
+
+/* Removed user-profile, user-avatar, user-name, logout-button, logout-icon styles */
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .sidebar-container {
+    width: 22%; /* Slightly wider on smaller desktops */
+    min-width: unset; /* Allow it to shrink */
+  }
+  .nav-text, .user-name, .logout-text {
+    font-size: 0.9em;
+  }
+  .nav-icon, .user-avatar, .logout-icon {
+    font-size: 1.1em;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar-container {
+    width: 250px; /* Fixed width for mobile sidebar when open */
+    position: fixed;
+    transform: translateX(-100%); /* Hidden by default on mobile */
+    top: 60px;
+    height: calc(100vh - 60px);
+    border-right: 1px solid #e0e0e0;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+    flex-direction: column; /* Back to column layout for mobile */
+    justify-content: space-between;
+    padding: 25px 20px;
+  }
+
+  .sidebar-container.sidebar-closed {
+    transform: translateX(-100%);
+  }
+
+  .sidebar-nav {
+    display: block; /* Show full nav on mobile when open */
+  }
+
+  .sidebar-bottom {
+    padding-top: 20px;
+    border-top: 1px solid #e0e0e0;
+    flex-direction: column; /* Back to column layout for mobile */
+    gap: 15px;
+  }
+
+  .user-profile {
+    justify-content: flex-start; /* Align to start for mobile */
+  }
+
+  .logout-button {
+    width: 90%;
+    padding: 12px 20px;
+  }
+}
+
+@media (min-width: 769px) {
+  .sidebar-container {
+    position: fixed; /* Ensure it remains fixed on larger screens */
+    top: 60px; /* Aligns sidebar correctly below the fixed header */
+    height: calc(100vh - 60px); /* Fill remaining vertical space */
+    transform: translateX(0); /* Always visible when open */
+    width: 250px; /* Fixed width for desktop sidebar */
+    /* min-width: unset; - Removed, as fixed width takes precedence */
+  }
+
+  .sidebar-container.sidebar-closed {
+    width: 0; /* Allow collapse on large screens if desired */
+    transform: translateX(-100%);
+  }
+
+  .backdrop {
+    display: none !important; /* Hide backdrop on large screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-text {
+    display: none; /* Hide text on very small screens, keep logo */
+  }
+
+  .user-name {
+    display: none; /* Hide name on very small screens, keep avatar */
+  }
+
+  .logout-text {
+    display: none; /* Hide logout text, keep icon */
+  }
+
+  .sidebar-bottom {
+    gap: 8px;
+  }
+
+  .user-avatar {
+    font-size: 1.5em;
+  }
+
+  .logout-icon {
+    font-size: 1.2em;
+    margin-right: 0;
+  }
+}

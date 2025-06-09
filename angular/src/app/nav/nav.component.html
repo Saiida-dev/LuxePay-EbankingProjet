@@ -1,0 +1,65 @@
+<div class="sidebar-container" [ngClass]="{'sidebar-closed': !sidebarOpen}">
+
+  <nav class="sidebar-nav">
+    <ul class="nav-links">
+      <li class="nav-item">
+        <a routerLink="/dashboard/1" routerLinkActive="active-link">
+          <i class="fas fa-tachometer-alt nav-icon"></i>
+          <span class="nav-text">Dashboard</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a [routerLink]="['/account-setting', accountId]" routerLinkActive="active-link">
+          <i class="fas fa-university nav-icon"></i>
+          <span class="nav-text">Comptes</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a [routerLink]="['/transactions', accountId]" routerLinkActive="active-link">
+          <i class="fas fa-exchange-alt nav-icon"></i>
+          <span class="nav-text">Virements</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a [routerLink]="['/recharge-list', accountId]" routerLinkActive="active-link">
+          <i class="fas fa-mobile-alt nav-icon"></i>
+          <span class="nav-text">Recharges</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/crypto-wallet" routerLinkActive="active-link">
+          <i class="fab fa-bitcoin nav-icon"></i>
+          <span class="nav-text">Crypto Wallet</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/budget" routerLinkActive="active-link">
+          <i class="fas fa-chart-pie nav-icon"></i>
+          <span class="nav-text">Budget</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/ai-assistant" routerLinkActive="active-link">
+          <i class="fas fa-comments nav-icon"></i>
+          <span class="nav-text">IA Assistant</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/referral" routerLinkActive="active-link">
+          <i class="fas fa-gift nav-icon"></i>
+          <span class="nav-text">Parrainage</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/settings/account" routerLinkActive="active-link">
+          <i class="fas fa-cog nav-icon"></i>
+          <span class="nav-text">Settings</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="sidebar-bottom">
+    <!-- Removed user profile and logout button from sidebar as per request -->
+  </div>
+</div>

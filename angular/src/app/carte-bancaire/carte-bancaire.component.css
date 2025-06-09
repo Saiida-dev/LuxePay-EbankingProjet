@@ -1,0 +1,116 @@
+/* Import Google Font - Poppins */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap; /* Allow cards to wrap to the next line */
+  gap: 20px; /* Space between cards */
+  padding: 20px; /* Add some padding around the container */
+  justify-content: center; /* Center cards horizontally */
+}
+
+.card {
+  position: relative;
+  background: linear-gradient(135deg, #8e44ad, #3498db); /* Modern gradient background */
+  padding: 25px;
+  border-radius: 20px; /* More rounded corners */
+  max-width: 380px; /* Keep a reasonable max width */
+  width: 100%;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+  color: #fff; /* White text color */
+  display: flex; /* Use flexbox for internal layout */
+  flex-direction: column; /* Stack elements vertically */
+  justify-content: space-between; /* Distribute space vertically */
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px; /* Space below header */
+}
+
+.logo img {
+  width: 40px; /* Adjust logo size */
+  margin-right: 10px;
+}
+
+.chip {
+  width: 50px; /* Adjust chip size */
+}
+
+.card-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: auto; /* Push details to the bottom */
+}
+
+.card-number h6, .card-type h6, .valid-date h6 {
+  color: rgba(255, 255, 255, 0.8); /* Slightly transparent white for labels */
+  font-size: 10px;
+  font-weight: 400;
+  margin-bottom: 2px; /* Space below label */
+}
+
+.card-number h5.number {
+  font-size: 18px;
+  letter-spacing: 2px; /* Increased letter spacing */
+}
+
+.card-type h5.name {
+    font-size: 16px;
+}
+
+.valid-date h5 {
+    font-size: 16px;
+}
+
+.card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #f0f2f5; /* Light background for actions section */
+  border-radius: 15px; /* Match card border-radius */
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.card-actions button {
+  background-color: #8e44ad; /* Action button background */
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 15px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  flex: 1 1 auto; /* Allow buttons to grow and shrink */
+  min-width: 120px; /* Minimum width for buttons */
+  text-align: center;
+}
+
+.card-actions button:hover {
+  background-color: #3498db; /* Hover effect */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 600px) {
+  .card-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .card-actions button {
+    width: 100%; /* Full width buttons on small screens */
+  }
+}

@@ -1,0 +1,83 @@
+<!-- <p>account works!</p>
+<form [formGroup]="_form_add_account" (ngSubmit)="onSubmit()">
+    <div>
+        <input id="accountNumber" formControlName="accountNumber" type="hidden">
+    </div>
+    <div>
+        <select name="cars" id="type" formControlName="type">
+            <option value="courant">courant</option>
+            <option value="epargne">epargne</option>
+        </select>
+    </div>
+    <div>
+        <label for="solde">Solde</label>
+        <input id="solde" formControlName="solde" type="number">
+    </div>
+    <div>
+        <label for="date_creation">Date de Création</label>
+        <input id="date_creation" formControlName="date_creation" type="date">
+    </div>
+    <div>
+        <input id="status" formControlName="status" type="hidden" value="true">
+    </div>
+    <button type="submit">Add Account</button>
+</form> -->
+
+<div class="accounts-page">
+  <div class="header">
+    <h1>My Accounts</h1>
+    <button (click)="toggleAddAccountForm()">{{ showAddAccountForm ? 'Cancel' : 'Nouveau compte' }}</button>
+  </div>
+
+  <div *ngIf="showAddAccountForm" class="add-account-form">
+    <form [formGroup]="_form_add_account" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="type">Type de compte</label>
+        <select id="type" formControlName="type">
+          <option value="courant">Courant</option>
+          <option value="epargne">Épargne</option>
+          <option value="professionnel">Professionnel</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="solde">Solde initial</label>
+        <input id="solde" formControlName="solde" type="number">
+      </div>
+      <div class="form-group">
+        <label for="date_creation">Date de création</label>
+        <input id="date_creation" formControlName="date_creation" type="date">
+      </div>
+      <!-- Hidden fields -->
+      <input id="accountNumber" formControlName="accountNumber" type="hidden">
+      <input id="status" formControlName="status" type="hidden" value="true">
+      <input formControlName="user" type="hidden">
+      <input formControlName="Beneficier" type="hidden">
+      <input formControlName="Transaction" type="hidden">
+      <input formControlName="Carte" type="hidden">
+
+      <button type="submit">Ajouter le compte</button>
+    </form>
+  </div>
+
+  <div class="accounts-list">
+    <div class="account-card" *ngFor="let account of accounts">
+      <div class="account-info-main">
+        <div class="account-name">
+          <h3>{{ account.type | titlecase }} Account</h3>
+          <p class="account-type">Type: {{ account.type | titlecase }}</p>
+        </div>
+        <div class="account-number">
+          <p>**** **** **** {{ account.accountNumber.slice(-4) }}</p>
+          <p class="iban">IBAN: {{ account.accountNumber }}</p>
+        </div>
+      </div>
+      <div class="account-balance">
+        <p class="balance">{{ account.solde | currency:'EUR' }}</p>
+      </div>
+      <div class="account-actions">
+        <button (click)="viewDetails(account)" title="View Details"><i class="fas fa-info-circle"></i> Details</button>
+        <button (click)="downloadStatement(account)" title="Download Statement"><i class="fas fa-download"></i> Statement</button>
+      </div>
+    </div>
+  </div>
+</div>

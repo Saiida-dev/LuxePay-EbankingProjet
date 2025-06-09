@@ -1,0 +1,45 @@
+<div class="register-wrapper">
+    <div class="card">
+      <button class="back-button" (click)="goBack()">←</button>
+      <h2 class="title gradient-text">Créer un Compte</h2>
+      <p class="subtitle">Rejoignez LuxePay</p>
+  
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <input type="text" placeholder="Nom d'utilisateur" formControlName="username" required />
+        <input type="email" placeholder="Email" formControlName="email" required />
+  
+       <div class="form-row">
+  <input type="text" placeholder="CIN" formControlName="cin" required />
+  <input type="number" placeholder="Âge" formControlName="age" required />
+</div>
+
+  
+        <input type="text" placeholder="Téléphone" formControlName="telephone" required />
+  <select formControlName="genre" required>
+  <option value="" disabled selected>Choisir un rôle</option>
+  <option value="CLIENT">Client</option>
+  <option value="AGENT">Agent bancaire</option>
+  <option value="ADMIN">Admin</option>
+
+
+
+</select>
+  
+        <div class="form-group">
+          <input [type]="showPassword ? 'text' : 'password'" placeholder="Mot de passe" formControlName="password" required />
+          <button type="button" (click)="toggleShowPassword()">{{ showPassword ? 'Cacher' : 'Afficher' }}</button>
+        </div>
+  
+        <div class="form-group">
+          <input [type]="showConfirmPassword ? 'text' : 'password'" placeholder="Confirmer le mot de passe" formControlName="confirmPassword" required />
+          <button type="button" (click)="toggleShowConfirmPassword()">{{ showConfirmPassword ? 'Cacher' : 'Afficher' }}</button>
+        </div>
+  
+        <button class="submit-btn" type="submit">Créer mon compte</button>
+      </form>
+  
+      <p class="login-redirect">Déjà inscrit ? <a routerLink="/login">Se connecter</a></p>
+    </div>
+  </div>
+  
+  

@@ -1,0 +1,61 @@
+<div class="budget-container">
+    <h2 class="main-title">
+        <img src="assets/icons/budget-icon.png" alt="Budget Analysis Icon" class="main-title-icon">
+        Budget Analysis
+    </h2>
+
+    <div class="chart-section card">
+        <h3>Spending Distribution by Category</h3>
+        <div class="chart-canvas-container">
+            <!-- 
+            <canvas baseChart
+                [data]="pieChartData"
+                [labels]="pieChartLabels"
+                [options]="pieChartOptions"
+                [type]="pieChartType"
+                [legend]="pieChartLegend">
+            </canvas>
+             -->
+        </div>
+    </div>
+
+    <div class="summary-section">
+        <h3>Expense Categories Summary</h3>
+        <div class="summary-cards-grid">
+            <div *ngFor="let expense of categoryExpenses" class="summary-card card">
+                <h4>{{ expense.name }}</h4>
+                <p>Allocated: <span class="allocated-budget">{{ expense.allocatedBudget | currency:'EUR' }}</span></p>
+                <p>Spent: <span [ngClass]="{'over-budget': expense.currentSpending > expense.allocatedBudget}">{{ expense.currentSpending | currency:'EUR' }}</span></p>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" [style.width.%]="calculateProgress(expense.currentSpending, expense.allocatedBudget)"
+                         [ngClass]="{'progress-red': expense.currentSpending > expense.allocatedBudget * 1.1,
+                                     'progress-orange': expense.currentSpending > expense.allocatedBudget && expense.currentSpending <= expense.allocatedBudget * 1.1,
+                                     'progress-green': expense.currentSpending <= expense.allocatedBudget}"></div>
+                </div>
+            </div>
+            <div *ngIf="categoryExpenses.length === 0" class="no-data-message card">
+                <p>No expense categories defined yet.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="goals-section">
+        <h3>Savings Goals</h3>
+        <div class="goals-cards-grid">
+            <div *ngFor="let goal of budgetGoals" class="goal-card card">
+                <h4>{{ goal.name }}</h4>
+                <p>Target: <span class="target-amount">{{ goal.targetAmount | currency:'EUR' }}</span></p>
+                <p>Current: <span class="current-amount">{{ goal.currentAmount | currency:'EUR' }}</span></p>
+                <p>Due Date: <span>{{ goal.dueDate | date:'shortDate' }}</span></p>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" [style.width.%]="calculateProgress(goal.currentAmount, goal.targetAmount)"
+                         [ngClass]="{'progress-green': calculateProgress(goal.currentAmount, goal.targetAmount) === 100,
+                                     'progress-blue': calculateProgress(goal.currentAmount, goal.targetAmount) < 100}"></div>
+                </div>
+            </div>
+            <div *ngIf="budgetGoals.length === 0" class="no-data-message card">
+                <p>No savings goals defined yet. Start setting your financial targets!</p>
+            </div>
+        </div>
+    </div>
+</div>

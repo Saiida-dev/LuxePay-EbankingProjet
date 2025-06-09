@@ -1,0 +1,36 @@
+<div class="add-card-container">
+  <div class="header">
+    <h2>Add New Card</h2>
+  </div>
+
+  <form [formGroup]="addCardForm" (ngSubmit)="onSubmit()" class="add-card-form">
+    <div class="form-group">
+      <label for="numero_carte">Card Number</label>
+      <input type="text" id="numero_carte" formControlName="numero_carte" placeholder="e.g., 1234567890123456">
+      <div *ngIf="addCardForm.get('numero_carte')?.invalid && addCardForm.get('numero_carte')?.touched" class="error-message">
+        Please enter a valid 16-digit card number.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="expiration_date">Expiration Date (MM/YY)</label>
+      <input type="text" id="expiration_date" formControlName="expiration_date" placeholder="e.g., 12/26">
+      <div *ngIf="addCardForm.get('expiration_date')?.invalid && addCardForm.get('expiration_date')?.touched" class="error-message">
+        Please enter a valid expiration date (MM/YY).
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="carte_type">Card Type</label>
+      <select id="carte_type" formControlName="carte_type">
+        <option value="">Select Card Type</option>
+        <option *ngFor="let type of carteTypes" [value]="type">{{ type | titlecase }}</option>
+      </select>
+      <div *ngIf="addCardForm.get('carte_type')?.invalid && addCardForm.get('carte_type')?.touched" class="error-message">
+        Please select a card type.
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="!addCardForm.valid">Add Card</button>
+  </form>
+</div>

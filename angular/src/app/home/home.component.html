@@ -1,0 +1,46 @@
+<div class="hero">
+  <nav class="navbar">
+    <div class="logo">LuxePay </div>
+    <div class="nav-buttons">
+      <button class="btn outline" (click)="goToLogin()">Se Connecter</button>
+      <button class="btn gradient" (click)="goToRegister()">S'inscrire</button>
+    </div>
+  </nav>
+
+  <div class="hero-content">
+    <h1>Bienvenue sur
+      <span class="gradient-text">LuxePay </span>
+    </h1>
+    <p>L'avenir de la banque digitale. Gérez vos finances avec simplicité et sécurité.</p>
+    <div class="cta-buttons">
+      <button class="btn gradient" (click)="goToRegister()">Commencer Maintenant</button>
+      <button class="btn outline" (click)="goToLogin()">Connexion</button>
+    </div>
+  </div>
+</div>
+
+<section class="features">
+  <h2>Pourquoi Choisir LuxePay ?</h2>
+  <p>Découvrez les fonctionnalités qui révolutionnent votre expérience bancaire</p>
+
+  <div class="feature-grid">
+    <div class="feature-card" *ngFor="let feature of features">
+      <div class="icon">
+        <i [class]="'lucide lucide-' + feature.icon"></i>
+      </div>
+      <h3>{{ feature.title }}</h3>
+      <p>{{ feature.description }}</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta-final">
+  <h2>Prêt à Transformer Votre Expérience Bancaire ?</h2>
+  <p>Rejoignez des milliers d'utilisateurs qui font confiance à LuxePay </p>
+  <button class="btn light" (click)="goToRegister()">Créer Mon Compte Gratuitement</button>
+</section>
+
+<footer>
+  <h3 class="gradient-text">LuxePay </h3>
+  <p>© 2025 LuxePay  Tous droits réservés. Banque digitale sécurisée et innovante.</p>
+</footer>

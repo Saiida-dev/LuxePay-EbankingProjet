@@ -1,0 +1,119 @@
+<div class="recharge-pay-wrapper">
+  <div class="recharge-card">
+    <div class="header">
+      <img *ngIf="selectedService" [src]="rechargeService.getIconPath(selectedService.icon)" alt="{{ selectedService?.name }} Icon" class="service-icon-large">
+      <h2>Recharge for {{ selectedService?.name }}</h2>
+    </div>
+
+    <form [formGroup]="rechargeForm" (ngSubmit)="onSubmit()" class="recharge-form">
+
+      <!-- Common Amount Field -->
+      <div class="form-group">
+        <label for="amount">Amount</label>
+        <input type="number" id="amount" formControlName="amount" placeholder="Enter amount" class="rounded-input">
+        <div *ngIf="rechargeForm.get('amount')?.invalid && rechargeForm.get('amount')?.touched" class="error-message">
+          Amount must be a positive number.
+        </div>
+      </div>
+
+      <!-- Mobile Credit Fields -->
+      <ng-container *ngIf="selectedService?.name === 'Mobile Credit'">
+        <div class="form-group">
+          <label for="accountNumber">Phone Number</label>
+          <input type="text" id="accountNumber" formControlName="accountNumber" placeholder="Enter phone number" class="rounded-input">
+          <div *ngIf="rechargeForm.get('accountNumber')?.invalid && rechargeForm.get('accountNumber')?.touched" class="error-message">
+            Phone Number is required.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="operator">Mobile Operator</label>
+          <select id="operator" formControlName="operator" class="rounded-input">
+            <option value="" disabled>Select an operator</option>
+            <option *ngFor="let operator of mobileOperators" [value]="operator">{{ operator }}</option>
+          </select>
+          <div *ngIf="rechargeForm.get('operator')?.invalid && rechargeForm.get('operator')?.touched" class="error-message">
+            Mobile Operator is required.
+          </div>
+        </div>
+      </ng-container>
+
+      <!-- Netflix Fields -->
+      <ng-container *ngIf="selectedService?.name === 'Netflix'">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" formControlName="email" placeholder="Enter email" class="rounded-input">
+          <div *ngIf="rechargeForm.get('email')?.invalid && rechargeForm.get('email')?.touched" class="error-message">
+            Valid Email is required.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="duration">Subscription Duration (Optional)</label>
+          <select id="duration" formControlName="duration" class="rounded-input">
+            <option value="">Select duration</option>
+            <option *ngFor="let duration of subscriptionDurations" [value]="duration">{{ duration }}</option>
+          </select>
+        </div>
+      </ng-container>
+
+      <!-- Spotify Fields -->
+      <ng-container *ngIf="selectedService?.name === 'Spotify'">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" formControlName="email" placeholder="Enter email" class="rounded-input">
+          <div *ngIf="rechargeForm.get('email')?.invalid && rechargeForm.get('email')?.touched" class="error-message">
+            Valid Email is required.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" formControlName="password" placeholder="Enter password" class="rounded-input">
+          <div *ngIf="rechargeForm.get('password')?.invalid && rechargeForm.get('password')?.touched" class="error-message">
+            Password is required.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="plan">Spotify Plan (Optional)</label>
+          <select id="plan" formControlName="plan" class="rounded-input">
+            <option value="">Select plan</option>
+            <option *ngFor="let plan of spotifyPlans" [value]="plan">{{ plan }}</option>
+          </select>
+        </div>
+      </ng-container>
+
+      <!-- Electricity / Internet Fields -->
+      <ng-container *ngIf="selectedService?.name === 'Electricity' || selectedService?.name === 'Internet'">
+        <div class="form-group">
+          <label for="customerIdentifier">{{ selectedService?.name === 'Electricity' ? 'Meter Number' : 'Customer ID' }}</label>
+          <input type="text" id="customerIdentifier" formControlName="customerIdentifier" placeholder="Enter identifier" class="rounded-input">
+          <div *ngIf="rechargeForm.get('customerIdentifier')?.invalid && rechargeForm.get('customerIdentifier')?.touched" class="error-message">
+            {{ selectedService?.name === 'Electricity' ? 'Meter Number' : 'Customer ID' }} is required.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="regionReference">Region Reference (Optional)</label>
+          <input type="text" id="regionReference" formControlName="regionReference" placeholder="Enter region reference" class="rounded-input">
+        </div>
+      </ng-container>
+
+      <!-- Fallback for other services -->
+      <ng-container *ngIf="selectedService as service">
+        <ng-container *ngIf="!service || (!['Mobile Credit', 'Netflix', 'Spotify', 'Electricity', 'Internet'].includes(service.name))">
+          <div class="form-group">
+            <label for="genericIdentifier">Service Identifier</label>
+            <input type="text" id="genericIdentifier" formControlName="genericIdentifier" placeholder="Enter identifier" class="rounded-input">
+            <div *ngIf="rechargeForm.get('genericIdentifier')?.invalid && rechargeForm.get('genericIdentifier')?.touched" class="error-message">
+              Service Identifier is required.
+            </div>
+          </div>
+        </ng-container>
+      </ng-container>
+
+      <button type="submit" [disabled]="!rechargeForm.valid" class="pay-now-button">Pay Now</button>
+    </form>
+  </div>
+</div> 

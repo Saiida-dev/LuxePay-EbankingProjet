@@ -1,0 +1,135 @@
+.recharge-pay-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align to top, not center vertically */
+    padding: 30px 0;
+    min-height: calc(100vh - 100px); /* Adjust as needed */
+  }
+  
+  .recharge-card {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px; /* Constrain width */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+  
+  .header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .header h2 {
+    font-size: 28px;
+    color: #333;
+    margin-top: 15px;
+    margin-bottom: 0;
+  }
+  
+  .service-icon-large {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin: 0 auto;
+    display: block;
+  }
+  
+  .recharge-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .form-group label {
+    display: block;
+    font-size: 15px;
+    color: #555;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  
+  .rounded-input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px; /* More rounded inputs */
+    font-size: 16px;
+    box-sizing: border-box; /* Include padding in width */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .rounded-input:focus {
+    outline: none;
+    border-color: #2563eb; /* Use start color of gradient for border */
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.3); /* Soft blue glow on focus */
+  }
+  
+  .error-message {
+    color: #dc3545;
+    font-size: 13px;
+    margin-top: 5px;
+  }
+  
+  .pay-now-button {
+    background: linear-gradient(to right, #2563eb, #7c3aed); /* Apply new gradient */
+    color: #fff;
+    border: none;
+    border-radius: 25px; /* More rounded */
+    padding: 15px 25px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4); /* Use start color of gradient for shadow */
+    width: 100%;
+    margin-top: 20px; /* Space above button */
+  }
+  
+  .pay-now-button:hover {
+    background: linear-gradient(to right, #1a4ed8, #6428c9); /* Darker gradient on hover */
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(37, 99, 235, 0.5); /* Darker shadow on hover */
+  }
+  
+  .pay-now-button:disabled {
+    background: #cccccc;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .recharge-pay-wrapper {
+      padding: 20px 15px;
+    }
+  
+    .recharge-card {
+      padding: 30px 20px;
+      gap: 15px;
+    }
+  
+    .header h2 {
+      font-size: 24px;
+    }
+  
+    .service-icon-large {
+      width: 80px;
+      height: 80px;
+    }
+  
+    .rounded-input {
+      padding: 10px 12px;
+      font-size: 15px;
+    }
+  
+    .pay-now-button {
+      padding: 12px 20px;
+      font-size: 16px;
+    }
+  } 
